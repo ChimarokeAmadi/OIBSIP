@@ -11,22 +11,35 @@ var number = document.querySelectorAll('.number');
 number.forEach(number => {
     number.addEventListener('click', function(number) {
         var numberPressed = number.target.textContent;
-        displayInCurrentOutput(numberPressed);
+        DisplayInCurrentOutput(numberPressed);
     });
 }) ;
 
-function displayInCurrentOutput(number) {
-    currentOutput.push(number);
+var symbol = document.querySelectorAll('.symbol');
+
+symbol.forEach(symbol => {
+    symbol.addEventListener('click', function() {
+        console.log(this.textContent)
+        var symbolpressed = this.textContent;
+        DisplayInTypedOutput(symbolpressed);
+    });
+});
+
+
+
+
+function DisplayInCurrentOutput(numberPressed) {
+    currentOutput.push(numberPressed);
     console.log(currentOutput)
     currentOutputDiv.textContent = currentOutput.join('');
 }
 
-function displayIntypedOutput(symbol) {
-
-}
-
-function displayInTypedOutput() {
-
+function DisplayInTypedOutput(symbol) {
+    typedOutput.push(symbol);
+    console.log(typedOutput);
+    typedOutputDiv.textContent = currentOutput.join('') + ' ' + typedOutput[typedOutput.length - 1];
+    currentOutput = [];
+    DisplayInCurrentOutput();
 }
 
 function compute() {
@@ -34,6 +47,10 @@ function compute() {
 }
 
 function del() {
+
+}
+
+function allClear() {
 
 }
 
