@@ -5,6 +5,7 @@ var typedOutput = [];
 // var numberToDisplay = currentOutput[currentNumberPosition];
 
 var currentOutputDiv = document.querySelector('.currentOutput');
+var typedOutputDiv = document.querySelector('.typedOutput');
 
 var number = document.querySelectorAll('.number');
 number.forEach(number => {
@@ -18,6 +19,10 @@ function displayInCurrentOutput(number) {
     currentOutput.push(number);
     console.log(currentOutput)
     currentOutputDiv.textContent = currentOutput.join('');
+}
+
+function displayIntypedOutput(symbol) {
+
 }
 
 function displayInTypedOutput() {
