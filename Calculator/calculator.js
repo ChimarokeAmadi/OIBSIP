@@ -1,8 +1,8 @@
 var currentOutput = [];
 var typedOutput = [];
 
-var currentNumberPosition = currentOutput.length - 1;
-var numberToDisplay = currentOutput[currentNumberPosition];
+// var currentNumberPosition = currentOutput.length - 1;
+// var numberToDisplay = currentOutput[currentNumberPosition];
 
 var currentOutputDiv = document.querySelector('.currentOutput');
 
@@ -17,6 +17,7 @@ number.forEach(number => {
 function displayInCurrentOutput(number) {
     currentOutput.push(number);
     console.log(currentOutput)
+    currentOutputDiv.textContent = currentOutput.join('');
 }
 
 function displayInTypedOutput() {
