@@ -1,6 +1,7 @@
 var currentOutput = [];
 var typedOutput = [];
 
+
 var currentOutputDiv = document.querySelector('.currentOutput');
 var typedOutputDiv = document.querySelector('.typedOutput');
 
@@ -18,8 +19,11 @@ function symbolClick(event) {
     symbol.forEach(function(button) {
         button.classList.remove('pressed')
     })
-    this.classList.add('pressed');
-    console.log(event.target.classList);
+    event.target.classList.add('pressed');
+    var symbolText = this.textContent;
+    console.log(symbolText);
+    DisplayInTypedOutput();
+
 }
 
 function addListener() {
@@ -38,16 +42,17 @@ function removeListener() {
 function DisplayInCurrentOutput(numberPressed) {
     currentOutput.push(numberPressed);
     console.log(currentOutput)
-    currentOutputDiv.textContent = currentOutput.join(''), ' ', symbol;
+    currentOutputDiv.textContent = currentOutput.join('');
     addListener();
 }
 
-// function DisplayInTypedOutput() {
-//     console.log(typedOutput);
-//     typedOutput.push(currentOutput.join(''))
-//     typedOutputDiv.textContent = typedOutput.join('');
-//     removeListener();
-// }
+function DisplayInTypedOutput() {
+    typedOutput.push(currentOutput.join(''))
+    currentOutputDiv.textContent = '0'
+    typedOutputDiv.textContent = typedOutput.join('');
+    console.log(typedOutput);
+    removeListener();
+}
 
 function compute() {
 
