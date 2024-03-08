@@ -1,9 +1,6 @@
 var currentOutput = [];
 var typedOutput = [];
 
-// var currentNumberPosition = currentOutput.length - 1;
-// var numberToDisplay = currentOutput[currentNumberPosition];
-
 var currentOutputDiv = document.querySelector('.currentOutput');
 var typedOutputDiv = document.querySelector('.typedOutput');
 
@@ -17,29 +14,37 @@ number.forEach(number => {
 
 var symbol = document.querySelectorAll('.symbol');
 
-symbol.forEach(symbol => {
-    symbol.addEventListener('click', function() {
-        console.log(this.textContent)
-        var symbolpressed = this.textContent;
-        DisplayInTypedOutput(symbolpressed);
-    });
-});
+function symbolclick(event) {
+    var symbolclicked = event.target.textContent;
+    DisplayInTypedOutput(symbolclicked)
+}
 
+function addListener() {
+    symbol.forEach(symbol => {
+        symbol.addEventListener('click', symbolclick)
+    })
+}
 
+function removeListener() {
+    symbol.forEach(symbol => {
+        symbol.removeEventListener('click', symbolclick)
+    })
+}
 
 
 function DisplayInCurrentOutput(numberPressed) {
     currentOutput.push(numberPressed);
     console.log(currentOutput)
     currentOutputDiv.textContent = currentOutput.join('');
+    addListener();
 }
 
 function DisplayInTypedOutput(symbol) {
-    typedOutput.push(symbol);
     console.log(typedOutput);
-    typedOutputDiv.textContent = currentOutput.join('') + ' ' + typedOutput[typedOutput.length - 1];
+    typedOutput.push(currentOutput.join(''), ' ', symbol, ' ')
+    typedOutputDiv.textContent = typedOutput.join('');
     currentOutput = [];
-    DisplayInCurrentOutput();
+    removeListener();
 }
 
 function compute() {
