@@ -14,20 +14,23 @@ number.forEach(number => {
 
 var symbol = document.querySelectorAll('.symbol');
 
-function symbolclick(event) {
-    var symbolclicked = event.target.textContent;
-    DisplayInTypedOutput(symbolclicked)
+function symbolClick(event) {
+    symbol.forEach(function(button) {
+        button.classList.remove('pressed')
+    })
+    this.classList.add('pressed');
+    console.log(event.target.classList);
 }
 
 function addListener() {
     symbol.forEach(symbol => {
-        symbol.addEventListener('click', symbolclick)
+        symbol.addEventListener('click', symbolClick)
     })
 }
 
 function removeListener() {
     symbol.forEach(symbol => {
-        symbol.removeEventListener('click', symbolclick)
+        symbol.removeEventListener('click', symbolClick)
     })
 }
 
@@ -35,17 +38,16 @@ function removeListener() {
 function DisplayInCurrentOutput(numberPressed) {
     currentOutput.push(numberPressed);
     console.log(currentOutput)
-    currentOutputDiv.textContent = currentOutput.join('');
+    currentOutputDiv.textContent = currentOutput.join(''), ' ', symbol;
     addListener();
 }
 
-function DisplayInTypedOutput(symbol) {
-    console.log(typedOutput);
-    typedOutput.push(currentOutput.join(''), ' ', symbol, ' ')
-    typedOutputDiv.textContent = typedOutput.join('');
-    currentOutput = [];
-    removeListener();
-}
+// function DisplayInTypedOutput() {
+//     console.log(typedOutput);
+//     typedOutput.push(currentOutput.join(''))
+//     typedOutputDiv.textContent = typedOutput.join('');
+//     removeListener();
+// }
 
 function compute() {
 

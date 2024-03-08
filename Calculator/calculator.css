@@ -58,5 +58,5 @@ body {
 }
 
 .pressed {
-    background-color: blue;
+    background-color: rgb(143, 168, 238) !important;
 }
