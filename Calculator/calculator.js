@@ -20,7 +20,7 @@ function symbolClick(event) {
         button.classList.remove('pressed')
     })
     event.target.classList.add('pressed');
-    var symbolText = this.textContent;
+    var symbolText = event.target.textContent;
     console.log(symbolText);
     DisplayInTypedOutput();
 
@@ -51,7 +51,7 @@ function DisplayInTypedOutput() {
     currentOutputDiv.textContent = '0'
     typedOutputDiv.textContent = typedOutput.join('');
     console.log(typedOutput);
-    removeListener();
+    // removeListener();
     currentOutput =[];
     currentOutputDiv.textContent = '0';  
 }
