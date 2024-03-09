@@ -51,7 +51,6 @@ function DisplayInTypedOutput() {
     currentOutputDiv.textContent = '0'
     typedOutputDiv.textContent = typedOutput.join('');
     console.log(typedOutput);
-    // removeListener();
     currentOutput =[];
     currentOutputDiv.textContent = '0';  
 }
