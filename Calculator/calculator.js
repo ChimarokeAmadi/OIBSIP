@@ -1,5 +1,5 @@
 var currentOutput = [];
-var typedOutput = [];
+var typedOutput = []; 
 
 
 var currentOutputDiv = document.querySelector('.currentOutput');
@@ -52,7 +52,11 @@ function DisplayInTypedOutput() {
     typedOutputDiv.textContent = typedOutput.join('');
     console.log(typedOutput);
     removeListener();
+    currentOutput =[];
+    currentOutputDiv.textContent = '0';  
 }
+
+
 
 function compute() {
 
