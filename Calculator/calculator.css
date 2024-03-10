@@ -39,6 +39,8 @@ body {
     justify-content: space-around;
     align-items: flex-end;
     padding: 0px 10px;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 .span2 {
