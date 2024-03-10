@@ -1,5 +1,6 @@
-var currentOutput = [];
-var typedOutput = []; 
+let currentOutput = [];
+let typedOutput = []; 
+// let calcNumber = [];
 
 
 var currentOutputDiv = document.querySelector('.currentOutput');
@@ -9,6 +10,7 @@ var number = document.querySelectorAll('.number');
 number.forEach(number => {
     number.addEventListener('click', function(number) {
         var numberPressed = number.target.textContent;
+        // console.log(calcNumber)
         DisplayInCurrentOutput(numberPressed);
     });
 }) ;
@@ -40,6 +42,7 @@ function removeListener() {
 
 
 function DisplayInCurrentOutput(numberPressed) {
+    if (numberPressed === '.' && currentOutput.includes('.')) return
     currentOutput.push(numberPressed);
     console.log(currentOutput)
     currentOutputDiv.textContent = currentOutput.join('');
