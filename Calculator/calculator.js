@@ -18,6 +18,7 @@ number.forEach(number => {
 
 var symbol = document.querySelectorAll('.symbol');
 
+
 function symbolClick(event) {
     symbol.forEach(function(button) {
         button.classList.remove('pressed')
@@ -26,8 +27,8 @@ function symbolClick(event) {
     var symbolText = event.target.textContent;
     console.log(symbolText);
     DisplayInTypedOutput();
-    if (typedOutputDiv.textContent !== '') {
-        compute();
+    if (typedOutputDiv.textContent !== '' || currentOutputDiv.textContent !== '') {
+        compute(symbolText);
     }
 }
 
@@ -67,13 +68,28 @@ equalsButton.addEventListener('click', function() {
 
 allClearButton.addEventListener('click', allClear)
 
-function compute() {
-let computation
-const prev = parseFloat(this.typedOutputDiv.textContent)
-const current = parseFloat(this.currentOutputDiv.textContent)
-if (isNaN(prev) || isNaN(current)) return;
-console.log(prev)
-console.log(current)
+function compute(symbolText) {
+    let computation
+    const prev = parseFloat(this.typedOutputDiv.textContent)
+    const current = parseFloat(this.currentOutputDiv.textContent)
+    if (isNaN(prev) || isNaN(current)) return;
+    switch (symbolText) {
+        case '+':
+            console.log('plus');
+            break;
+        case '-':
+            console.log('minus');
+            break;
+        case '*':
+            console.log('times');
+            break;
+        case '/' :
+            console.log('divide');
+            break;
+    }
+    console.log(prev)
+    console.log(current)
+    currentOutputDiv.textContent = computation;
 }
 
 function del() { 
