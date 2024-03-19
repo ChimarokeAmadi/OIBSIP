@@ -27,9 +27,11 @@ function symbolClick(event) {
     var symbolText = event.target.textContent;
     console.log(symbolText);
     DisplayInTypedOutput();
-    if (typedOutputDiv.textContent !== '' || currentOutputDiv.textContent !== '') {
+    if (this.currentOperand === '') return 
+    if (typedOutputDiv.textContent !== '') {
         compute(symbolText);
     }
+    // currentOutputDiv.textContent = '';
 }
 
 function addListener() {
@@ -55,11 +57,9 @@ function DisplayInCurrentOutput(numberPressed) {
 
 function DisplayInTypedOutput() {
     typedOutput.push(currentOutput.join(''))
-    currentOutputDiv.textContent = '0'
     typedOutputDiv.textContent = typedOutput.join('');
     console.log(typedOutput);
-    currentOutput =[];
-    currentOutputDiv.textContent = '0';  
+    currentOutput =[];  
 }
 
 equalsButton.addEventListener('click', function() {
@@ -70,26 +70,32 @@ allClearButton.addEventListener('click', allClear)
 
 function compute(symbolText) {
     let computation
-    const prev = parseFloat(this.typedOutputDiv.textContent)
-    const current = parseFloat(this.currentOutputDiv.textContent)
+    const prev = parseFloat(typedOutputDiv.textContent)
+    const current = parseFloat(currentOutputDiv.textContent)
     if (isNaN(prev) || isNaN(current)) return;
+    console.log(prev)
     switch (symbolText) {
         case '+':
-            console.log('plus');
+            computation = prev + current;
             break;
         case '-':
-            console.log('minus');
+            computation = prev - current;
             break;
         case '*':
-            console.log('times');
+            computation = prev * current;
             break;
         case '/' :
-            console.log('divide');
+            computation = prev / current;
             break;
+        default:
+            return
     }
+    currentOutputDiv.textContent = computation;
+    symbolText = undefined;
+    currentOutputDiv.textContent = ''
+    // typedOutputDiv.textContent = ''
     console.log(prev)
     console.log(current)
-    currentOutputDiv.textContent = computation;
 }
 
 function del() { 
