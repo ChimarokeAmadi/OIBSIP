@@ -1,8 +1,8 @@
 let currentOutput = [];
 let typedOutput = []; 
 // let calcNumber = [];
-var equalsButton = document.querySelector('equals');
-
+var equalsButton = document.querySelector('#equals');
+var allClearButton = document.querySelector('.allClear');
 
 var currentOutputDiv = document.querySelector('.currentOutput');
 var typedOutputDiv = document.querySelector('.typedOutput');
@@ -63,8 +63,9 @@ function DisplayInTypedOutput() {
 
 equalsButton.addEventListener('click', function() {
     compute();
-
 })
+
+allClearButton.addEventListener('click', allClear)
 
 function compute() {
 
@@ -75,8 +76,13 @@ function del() {
 }
 
 function allClear() {
-    currentOutputDiv.textContent = '';
     typedOutputDiv.textContent = '';
+    currentOutputDiv.textContent = '';
+    typedOutput = [];
+    currentOutput = [];
+    symbol.forEach(function(button) {
+        button.classList.remove('pressed')
+    })
 }
 
 
