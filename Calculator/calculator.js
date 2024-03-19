@@ -68,10 +68,15 @@ equalsButton.addEventListener('click', function() {
 allClearButton.addEventListener('click', allClear)
 
 function compute() {
-
+let computation
+const prev = parseFloat(this.typedOutputDiv.textContent)
+const current = parseFloat(this.currentOutputDiv.textContent)
+if (isNaN(prev) || isNaN(current)) return;
+console.log(prev)
+console.log(current)
 }
 
-function del() {
+function del() { 
 
 }
 
