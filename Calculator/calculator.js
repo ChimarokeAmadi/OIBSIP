@@ -1,6 +1,6 @@
 let currentOutput = [];
 let typedOutput = []; 
-// let calcNumber = [];
+
 var equalsButton = document.querySelector('#equals');
 var allClearButton = document.querySelector('.allClear');
 
@@ -11,7 +11,9 @@ var number = document.querySelectorAll('.number');
 number.forEach(number => {
     number.addEventListener('click', function(number) {
         var numberPressed = number.target.textContent;
-        // console.log(calcNumber)
+        // symbol.forEach(function(button) {
+        //     button.classList.remove('pressed')
+        // })
         DisplayInCurrentOutput(numberPressed);
     });
 }) ;
@@ -20,6 +22,7 @@ var symbol = document.querySelectorAll('.symbol');
 
 
 function symbolClick(event) {
+    typedOutput = []
     symbol.forEach(function(button) {
         button.classList.remove('pressed')
     })
@@ -27,13 +30,7 @@ function symbolClick(event) {
     var symbolText = event.target.textContent;
     console.log(symbolText);
     DisplayInTypedOutput();
-
-    // if (currentOutputDiv.textContent === '') return 
-    if (typedOutputDiv.textContent !== '') {
-        compute(symbolText);
-    }
-
-    
+    compute(symbolText)
 }
 
 function addListener() {
@@ -57,7 +54,7 @@ function DisplayInCurrentOutput(numberPressed) {
     addListener();
 }
 
-function DisplayInTypedOutput() {
+function DisplayInTypedOutput() { 
     typedOutput.push(currentOutput.join(''))
     currentOutputDiv.textContent = ''
     currentOutput = []
@@ -71,47 +68,38 @@ equalsButton.addEventListener('click', function() {
         const symbolText = pressedSymbol.textContent;
         compute(symbolText);
     }
+    typedOutputDiv.textContent = ''
 })
 
 allClearButton.addEventListener('click', allClear)
 
 function compute(symbolText) {
     if (currentOutputDiv.textContent === '') return
-    let computation
+    console.log('called')
     const prev = parseFloat(typedOutputDiv.textContent)
     const current = parseFloat(currentOutputDiv.textContent)
     if (isNaN(prev) || isNaN(current)) return;
     switch (symbolText) {
         case '+':
             computation = prev + current;
-            console.log(prev)
-            console.log(current)
-            console.log(computation)
             break;
         case '-':
             computation = prev - current;
-            console.log(prev)
-            console.log(current)
-            console.log(computation)
             break;
         case '*':
             computation = prev * current;
-            console.log(prev)
-            console.log(current)
-            console.log(computation)
             break;
         case '/' :
             computation = prev / current;
-            console.log(prev)
-            console.log(current)
-            console.log(computation)
             break;
         default:
             return
     }
-    // console.log(prev)
-    // console.log(current)
+    console.log(prev)
+    console.log(current)
+    // DisplayInCurrentOutput(computation)
     currentOutputDiv.textContent = computation;
+    currentOutput = [computation]
 }
 
 function del() { 
