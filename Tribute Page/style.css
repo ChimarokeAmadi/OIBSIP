@@ -10,6 +10,11 @@
     --secondary-color: rgb(253, 253, 252);
 }
 
+.section {
+    background-color: var(--main-color);
+    color: var(--secondary-color);
+}
+
 .first {
     background-color: var(--main-color);
     color: var(--secondary-color);
@@ -31,3 +36,47 @@
 .name .text {
     padding: 5px 0px;
 }
+
+.section.second {
+    background-color: var(--secondary-color);
+    color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section.second p {
+    padding-left: 100px;
+    font-weight: bold;
+}
+
+.quoteAndPicture {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--main-color);
+    max-width: 1000px;
+    width: 1400px;
+}
+
+.section.third {
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.biographyDiv{
+    width: 250px;
+}
+
+.section.third .biography.text {
+    font-size: 12px;
+    font-weight: 100;
+}
+
+.section.third .biographyHeading {
+    margin-bottom: 10px;
+}
+
+
