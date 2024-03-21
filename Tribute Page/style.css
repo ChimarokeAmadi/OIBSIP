@@ -4,6 +4,10 @@
 }
 
 :root {
-    --main-color: ;
-    --secondary-color: ;
+    --main-color: rgb(25, 25, 43);
+    --secondary-color: rgb(233, 233, 212);
+}
+
+section.first {
+    
 }
