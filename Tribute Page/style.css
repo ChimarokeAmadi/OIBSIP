@@ -6,8 +6,8 @@
 }
 
 :root {
-    --main-color: rgb(25, 25, 43);
-    --secondary-color: rgb(233, 233, 212);
+    --main-color: rgb(14, 14, 87);
+    --secondary-color: rgb(253, 253, 252);
 }
 
 .first {
@@ -26,4 +26,8 @@
 
 .name h1.name {
     height: auto;
+}
+
+.name .text {
+    padding: 5px 0px;
 }
