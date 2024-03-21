@@ -8,6 +8,7 @@
     --secondary-color: rgb(233, 233, 212);
 }
 
-section.first {
-    
+.first {
+    background-color: var(--main-color);
+    color: var(--secondary-color);
 }
