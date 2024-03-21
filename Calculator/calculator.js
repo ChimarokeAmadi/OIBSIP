@@ -11,9 +11,6 @@ var number = document.querySelectorAll('.number');
 number.forEach(number => {
     number.addEventListener('click', function(number) {
         var numberPressed = number.target.textContent;
-        // symbol.forEach(function(button) {
-        //     button.classList.remove('pressed')
-        // })
         DisplayInCurrentOutput(numberPressed);
     });
 }) ;
@@ -97,13 +94,17 @@ function compute(symbolText) {
     }
     console.log(prev)
     console.log(current)
-    // DisplayInCurrentOutput(computation)
     currentOutputDiv.textContent = computation;
     currentOutput = [computation]
 }
 
-function del() { 
 
+document.querySelector('#delete').addEventListener('click', del)
+function del() { 
+    if (currentOutput.length > 0) {
+        currentOutput.pop(); // Remove the last element from the array
+        currentOutputDiv.textContent = currentOutput.join('');
+    }
 }
 
 function allClear() {
