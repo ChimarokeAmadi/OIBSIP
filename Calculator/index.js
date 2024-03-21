@@ -102,7 +102,7 @@ function compute(symbolText) {
 document.querySelector('#delete').addEventListener('click', del)
 function del() { 
     if (currentOutput.length > 0) {
-        currentOutput.pop(); // Remove the last element from the array
+        currentOutput.pop();
         currentOutputDiv.textContent = currentOutput.join('');
     }
 }
