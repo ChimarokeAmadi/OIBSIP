@@ -33,6 +33,14 @@
     height: auto;
 }
 
+.name h4 {
+    margin-bottom: 20px;
+}
+
+.icon {
+    font-size: 25px;
+}
+
 .name .text {
     padding: 5px 0px;
 }
@@ -62,12 +70,19 @@
 .section.third {
     height: 40vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 30px;
+    padding-bottom: 0px;
 }
 
 .biographyDiv{
-    width: 250px;
+    width: 350px;
+}
+
+.section.third .text {
+    margin: 0px 50px;
 }
 
 .section.third .biography.text {
@@ -77,6 +92,25 @@
 
 .section.third .biographyHeading {
     margin-bottom: 10px;
+}
+
+hr {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--main-color);
+}
+
+footer {
+    margin: 0px;
+    padding: 0px;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer p {
+    font-size: 12px;
 }
 
 
