@@ -13,3 +13,12 @@ function addTask() {
     taskId.value = '';
     taskDescription.value = '';
 }
+
+listContainer.addEventListener('click', function(evt) {
+    if(evt.target.tagName === 'LI') {
+        evt.target.classList.toggle('checked');
+    }
+    else if(evt.target.tagName === 'BUTTON') {
+        evt.target.parentElement.remove();
+    }
+})
