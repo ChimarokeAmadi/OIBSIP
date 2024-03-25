@@ -81,6 +81,11 @@ hr {
     margin: 10px;
 }
 
+#delete:hover{
+    background-color: red;
+    color: aqua;
+}
+
 #delete {
     width: 20px;
     margin: auto;
