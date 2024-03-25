@@ -52,6 +52,11 @@ button {
     width: 1000px;
 }
 
+hr {
+    border: 1px solid black;
+    margin: 10px 0px;
+}
+
 #list_container li::before {
     content: '';
     position: absolute;
