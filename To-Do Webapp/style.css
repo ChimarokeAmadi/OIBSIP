@@ -99,4 +99,5 @@ hr {
 
 #list_container li.checked::before {
     background-image: url(images/checked.png);
+    border: none;
 }

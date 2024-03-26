@@ -19,6 +19,7 @@ listContainer.addEventListener('click', function(evt) {
         evt.target.classList.toggle('checked');
     }
     else if(evt.target.tagName === 'BUTTON') {
-        evt.target.parentElement.remove();
+        let listItem = evt.target.closest('li');
+        listItem.remove();
     }
-})
+});
