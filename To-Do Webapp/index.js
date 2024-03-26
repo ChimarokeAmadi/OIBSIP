@@ -20,10 +20,12 @@ function addTask() {
 listContainer.addEventListener('click', function(evt) {
     if(evt.target.tagName === 'LI') {
         evt.target.classList.toggle('checked');
+        saveData();
     }
     else if(evt.target.tagName === 'BUTTON') {
         let listItem = evt.target.closest('li');
         listItem.remove();
+        saveData();
     }
 });
 
