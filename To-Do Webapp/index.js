@@ -5,13 +5,16 @@ const listContainer = document.getElementById('list_container');
 function addTask() {
     if (taskId.value === '' || taskDescription.value === ''){
         alert("Please fill the required inputs first.");
+        saveData();
     } else{
         let li = document.createElement("li");
         li.innerHTML = "<div>" + "<p>" + taskId.value + "</p>" + "<p>" + taskDescription.value + "</p>" + "<button id = 'delete'>X</button>";
         listContainer.appendChild(li);
+        saveData();
     }
     taskId.value = '';
     taskDescription.value = '';
+    saveData();
 }
 
 listContainer.addEventListener('click', function(evt) {
@@ -23,3 +26,13 @@ listContainer.addEventListener('click', function(evt) {
         listItem.remove();
     }
 });
+
+function saveData(){
+    localStorage.setItem('data', listContainer.innerHTML);
+}
+
+function showTasks(){
+    listContainer.innerHTML = localStorage.getItem('data');
+}
+
+showTasks();
