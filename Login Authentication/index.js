@@ -25,7 +25,9 @@ function signUp() {
         return;
     }
 
-    localStorage.setItem(username, JSON.stringify({ email: email, password: password}));
+    var hashedPassword = hashPassword(password)
+
+    localStorage.setItem(username, JSON.stringify({ email: email, password: hashedPassword}));
 
     alert('Sign up successful, please log in.');
 }
@@ -73,6 +75,6 @@ function hashPassword(password) {
     return hash.toString();
 }
 
-function verifyPassword (inputPassword, password) {
-    r
+function verifyPassword (inputPassword, hashedPassword) {
+    return hashPassword(inputPassword) === hashedPassword;
 }
