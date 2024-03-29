@@ -79,3 +79,20 @@
 .page_link a:hover {
     color: blue;
 }
+
+.form-field button {
+    margin: 0%;
+    background: none;
+    border: none;
+    color: rgb(6, 6, 90);
+}
+
+#passwordField {
+    margin-left: 35px;
+}
+
+#loginPasswordField {
+    margin-left: 30px;
+}
+
+

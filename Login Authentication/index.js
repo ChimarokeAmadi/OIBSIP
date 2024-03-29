@@ -62,3 +62,18 @@ function login() {
         alert('Invalid username or password. Please try again.');
     }
 }
+
+var passwordToggleButton = document.querySelectorAll('.togglePassword');
+
+passwordToggleButton.forEach(function(element) {
+    element.addEventListener('click', function(event) {
+        var passwordfield = document.getElementById('password');
+        if (passwordfield.type === 'password') {
+            passwordfield.type = 'text';
+            this.textContent = 'Hide'
+        }else {
+            passwordfield.type = 'password';
+            this.textContent = 'Show'
+        }
+    })
+})
