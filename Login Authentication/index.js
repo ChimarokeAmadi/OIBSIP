@@ -45,3 +45,34 @@ function checkPassword(password) {
 
     return upperCase && lowerCase && hasNumber && !hasSpecial;
 }
+
+function login() {
+    var username = document.getElementById('login-Username').value;
+    var password = document.getElementById('login-Password').value;
+
+    if (!username || !password) {
+        alert("please fill in all fields.")
+        return;
+    }
+
+    var userDetails = JSON.parse(localStorage.getItem(username));
+
+    if (userDetails && verifyPassword(password, userDetails.password)) {
+        alert('Login successful!');
+    }
+}
+
+function hashPassword(password) {
+    var hash = 0;
+    if (password.length == 0) return hash;
+    for (var i = 0; i < password.length; i++) {
+        var char = password.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash;
+    }
+    return hash.toString();
+}
+
+function verifyPassword (inputPassword, password) {
+    r
+}
