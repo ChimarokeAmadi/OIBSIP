@@ -57,5 +57,8 @@ function login() {
 
     if (userData && userData.password === password){
         alert('Login successful. Welcome, ' + loginUsername + '!');
+        window.location.href = 'secured_page.html'
+    }else {
+        alert('Invalid username or password. Please try again.');
     }
 }
