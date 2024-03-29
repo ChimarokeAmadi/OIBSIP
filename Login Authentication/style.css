@@ -65,16 +65,17 @@
     margin-top: 20px;
 }
 
-.container a {
-    position: absolute;
-    top: 10px;
-    left: 1600px;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 20px;
-    font-weight: 700;
-    border: none;
-    text-decoration: none;
-    color: #fff;
+.page_link {
+    color: rgb(6, 6, 90);
+    margin-top: 20px;
 }
 
+
+.page_link a {
+    text-decoration: none;
+    color: rgb(6, 6, 90);
+}
+
+.page_link a:hover {
+    color: blue;
+}
