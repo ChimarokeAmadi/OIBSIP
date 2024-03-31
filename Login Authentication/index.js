@@ -1,11 +1,22 @@
 
 
-
 function signUp() {
     var email = document.getElementById('email').value;
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
 
+
+    //check if username already exists
+
+    var storedEmailsString = localStorage.getItem('userEmails');
+    var storedEmails = JSON.parse(storedEmailsString);
+    console.log(storedEmails)
+   if(localStorage.getItem(username)) {
+    alert('This Username is already taken.')
+    return;
+   }
+
+    //check password format
     if(!isValidPassword(password)) {
         return;
     }
@@ -16,11 +27,19 @@ function signUp() {
         username: username,
         password: password
     };
+
+    
     localStorage.setItem(username, JSON.stringify(userData));
 
     alert('Sign up successful. You can now login.');
+    var userEmails = [];
+    userEmails.push(email);
+    var userEmailsString = JSON.stringify(userEmails);
+    console.log(userEmails)
+    localStorage.setItem('userEmails', userEmailsString)
 
     window.location.href = 'login.html'; //redirect to login page.
+
 
 }
 
