@@ -81,7 +81,6 @@ function login() {
         alert('Invalid username or password. Please try again.');
     }
 
-    localStorage.setItem(loginUsername, loginUsername);
 
 }
 

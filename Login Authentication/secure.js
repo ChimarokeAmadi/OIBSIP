@@ -1,7 +1,12 @@
+// get username from username URL query parameter
 
-var loggedInUser = localStorage.getItem('loginUsername');
+var urlParam = new URLSearchParams(window.location.search);
+var username = urlParam.get('username');
 
 var welcomeMessage = document.getElementById('welcomeMessage');
 
-welcomeMessage.innerHTML = 'Hello ' + loggedInUser + '! welcome to the MVPs secure page.' 
+welcomeMessage.innerHTML = 'Hello ' + username + '! Welcome to the MVPs secure page.'
 
+var logOut = document.getElementById('logOutBtn').addEventListener('click', function() {
+    window.location.href = 'login.html';
+});
