@@ -29,6 +29,10 @@
     padding-bottom: 20px;
 }
 
+input:focus {
+    outline: none;
+}
+
 .form-box input {
     margin: 10px;
     padding: 10px;
@@ -94,3 +98,6 @@
 button {
     cursor: pointer;
 }
+ button:focus {
+    outline: none;
+ }
