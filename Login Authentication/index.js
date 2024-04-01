@@ -76,10 +76,13 @@ function login() {
 
     if (userData && userData.password === password){
         alert('Login successful. Welcome, ' + loginUsername + '!');
-        window.location.href = 'secure.html'
+        window.location.href = 'secure.html?username=' + loginUsername;
     }else {
         alert('Invalid username or password. Please try again.');
     }
+
+    localStorage.setItem(loginUsername, loginUsername);
+
 }
 
 var passwordToggleButton = document.querySelectorAll('.togglePassword');
@@ -96,3 +99,4 @@ passwordToggleButton.forEach(function(element) {
         }
     })
 })
+
