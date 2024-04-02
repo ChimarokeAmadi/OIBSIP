@@ -72,7 +72,6 @@ allClearButton.addEventListener('click', allClear)
 
 function compute(symbolText) {
     if (currentOutputDiv.textContent === '') return
-    console.log('called')
     const prev = parseFloat(typedOutputDiv.textContent)
     const current = parseFloat(currentOutputDiv.textContent)
     if (isNaN(prev) || isNaN(current)) return;
